@@ -2,7 +2,6 @@ node 'puppetclient.example.com' {
   $adminemail = 'puppetmaster@example.com'
   $servername = 'puppetmaster.example.com'
 
-  include accounts
   include apache
   include apache::vhosts
   include mysql
@@ -25,7 +24,6 @@ node 'puppetcentos.example.com' {
   $adminemail = 'puppetmaster@example.com'
   $servername = 'puppetmaster.example.com'
 
-  include accounts
   include apache
   include apache::vhosts
   include mysql
