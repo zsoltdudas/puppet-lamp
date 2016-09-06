@@ -3,6 +3,6 @@
     ServerName <%= @servername %>
     ServerAlias www.<%= @servername %>
     DocumentRoot /var/www/<%= @servername -%>/public_html/
-    ErrorLog /var/www/<%- @servername -%>/logs/error.log
+    ErrorLog /var/www/<%= @servername -%>/logs/error.log
     CustomLog /var/www/<%= @servername -%>/logs/access.log combined
 </Virtual Host>
