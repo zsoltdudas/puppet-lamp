@@ -1,8 +1,8 @@
 class php {
 
   $php_name = $osfamily ? {
-    'Debian'    => 'php5'
-    'RedHat'    => 'php'
+    'Debian'    => 'php5',
+    'RedHat'    => 'php',
     default     => warning('This distribution is not supported by the PHP module'),
   }
 
