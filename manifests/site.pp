@@ -28,6 +28,8 @@ node 'puppetcentos.example.com' {
   include accounts
   include apache
   include apache::vhosts
+  include mysql
+  include php
 
   resources { 'firewall':
     purge => true,
