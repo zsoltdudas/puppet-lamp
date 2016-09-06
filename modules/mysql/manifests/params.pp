@@ -5,8 +5,8 @@ class mysql::params {
   if $::osfamily == 'RedHat' {
     $mysql_name     = ['mysql-server', 'mysql', 'mysql-devel']
     $mysql_service  = 'mysqld'
-    $conffile       = '/etc/my.cnf'
-    $confsource     = 'puppet:///modules/mysql/my-centos.cnf'
+    $mysql_conf       = '/etc/my.cnf'
+    $mysql_src     = 'puppet:///modules/mysql/my-centos.cnf'
     $init_cmd       = '/bin/true'
     $mysqlpwd_cmd   = '/usr/bin/mysqladmin -u root password $mysqlpassword || /bin/true'
   }
@@ -14,8 +14,8 @@ class mysql::params {
   elsif $::osfamily == 'Debian' {
     $mysql_name     = ['mysql-server', 'libapache2-mod-auth-mysql']
     $mysql_service  = 'mysql'
-    $conffile       = '/etc/mysql/my.cnf'
-    $confsource     = 'puppet:///modules/mysql/my-ubuntu.cnf'
+    $mysql_conf       = '/etc/mysql/my.cnf'
+    $mysql_src     = 'puppet:///modules/mysql/my-ubuntu.cnf'
     $init_cmd       = '/sbin/initctl reload-configuration'
     $mysqlpwd_cmd   = '/usr/bin/mysqladmin -u root password $mysqlpassword || /bin/true'
   }

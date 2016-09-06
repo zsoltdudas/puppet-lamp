@@ -1,8 +1,8 @@
 class mysql (
   $mysql_name    = $::mysql::params::mysql_name,
   $mysql_service = $::mysql::params::mysql_service,
-  $conffile      = $::mysql::params::conffile,
-  $confsource    = $::mysql::params::confsource,
+  $mysql_conf    = $::mysql::params::mysql_conf,
+  $mysql_src     = $::mysql::params::mysql_src,
   $init_cmd      = $::mysql::params::init_cmd,
   $mysqlpwd_cmd  = $::mysql::params::mysqlpwd_cmd,
 ) inherits ::mysql::params {
@@ -18,10 +18,9 @@ class mysql (
     require   => Package['mysql'],
   }
 
-  file { 'configuration-file':
-    path    => $conffile,
-    ensure  => file,
-    source  => $confsource,
+  file { $mysql_conf:
+    ensure  => present,
+    source  => $mysql_src,
     require => Package['mysql'],
     notify  => Service[$mysql_service],
   }
