@@ -19,4 +19,3 @@ class apache::params {
   }
 
 }
-

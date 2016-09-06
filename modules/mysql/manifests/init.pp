@@ -36,3 +36,5 @@ class mysql (
     onlyif  => $init_cmd,
     require => Package[$mysql_service],
   }
+
+}
