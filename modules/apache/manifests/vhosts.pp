@@ -1,5 +1,5 @@
 class apache::vhosts {
-        
+
   if $::osfamily == 'RedHat' {
    file { '/etc/httpd/conf.d/vhost.conf':
       ensure    => file,
@@ -14,7 +14,7 @@ class apache::vhosts {
     file { "/var/www/$servername/log":
       ensure    => directory,
     }
-  } 
+  }
 
   elsif $::osfamily == 'Debian' {
    file { "/etc/apache2/sites-available/$servername.conf":
@@ -30,10 +30,10 @@ class apache::vhosts {
     file { "/var/www/html/$servername/logs":
       ensure    => directory,
     }
-  } 
-  
+  }
+
   else {
       print "This is not a supported distro."
   }
-        
+
 }
