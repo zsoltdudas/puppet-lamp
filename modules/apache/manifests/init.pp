@@ -25,7 +25,7 @@ class apache (
   file { $www:
     ensure  => present,
     source  => 'puppet:///modules/www/index.php',
-    require => Package[apache]
+    require => Package[apache],
     notify  => Service[apache-service],
   }
 
