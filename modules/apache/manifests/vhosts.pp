@@ -5,13 +5,13 @@ class apache::vhosts {
       ensure    => file,
       content   => template('apache/vhosts-rh.conf.erb'),
     }
-    file { "/var/www/$servername":
+    file { "/var/www/html/$servername":
       ensure    => directory,
     }
-    file { "/var/www/$servername/public_html":
+    file { "/var/www/html/$servername/public_html":
       ensure    => directory,
     }
-    file { "/var/www/$servername/log":
+    file { "/var/www/html/$servername/log":
       ensure    => directory,
     }
   }

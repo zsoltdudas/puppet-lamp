@@ -11,7 +11,7 @@ class apache::params {
     $apache_name    = 'apache2'
     $conffile       = '/etc/apache2/apache2.conf'
     $confsource     = 'puppet:///modules/apache/apache2.conf'
-    $www            = '/var/www/index.php'
+    $www            = '/var/www/html/index.php'
   }
 
   else {

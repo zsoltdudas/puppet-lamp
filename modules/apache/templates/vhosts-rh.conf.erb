@@ -2,7 +2,7 @@
     ServerAdmin	<%= @adminemail %>
     ServerName <%= @servername %>
     ServerAlias www.<%= @servername %>
-    DocumentRoot /var/www/<%= @servername -%>/public_html/
-    ErrorLog /var/www/<%= @servername -%>/logs/error.log
-    CustomLog /var/www/<%= @servername -%>/logs/access.log combined
+    DocumentRoot /var/www/html/<%= @servername -%>/public_html/
+    ErrorLog /var/www/html/<%= @servername -%>/logs/error.log
+    CustomLog /var/www/html/<%= @servername -%>/logs/access.log combined
 </Virtual Host>
