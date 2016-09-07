@@ -15,10 +15,4 @@ class php {
     ensure  => present,
   }
 
-  service { 'php-service':
-    name    => $php_name,
-    ensure  => running,
-    enable  => true,
-  }
-
 }
