@@ -33,7 +33,7 @@ class mysql (
   exec { 'mysql_password':
     command => $mysqlpwd_cmd,
     onlyif  => $init_cmd,
-    require => Package[$mysql_service],
+    require => Package['mysql'],
   }
 
 }
