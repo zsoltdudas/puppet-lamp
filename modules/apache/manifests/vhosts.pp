@@ -5,6 +5,9 @@ class apache::vhosts {
       ensure    => file,
       content   => template('apache/vhosts-rh.conf.erb'),
     }
+    file { "/var/www/html":
+      ensure    => directory,
+    }
     file { "/var/www/html/$servername":
       ensure    => directory,
     }
