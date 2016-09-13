@@ -5,6 +5,14 @@ class apache (
   $www          = $::apache::params::www,
 ) inherits ::apache::params {
 
+  firewall { '100 allow apache':
+    chain   => 'INPUT',
+    state   => ['NEW'],
+    dport   => '80',
+    proto   => 'tcp',
+    action  => 'accept',
+  }
+
   package { 'apache':
     name    => $apache_name,
     ensure  => present,
@@ -19,6 +27,8 @@ class apache (
 
   service { 'apache-service':
     name	  => $apache_name,
+    ensure     => running,
+    enable     => true,
     hasrestart	  => true,
   }
 

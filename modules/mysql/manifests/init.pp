@@ -21,6 +21,9 @@ class mysql (
   file { $mysql_conf:
     ensure  => present,
     source  => $mysql_src,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
     require => Package['mysql'],
     notify  => Service[$mysql_service],
   }
