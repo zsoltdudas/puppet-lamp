@@ -17,7 +17,7 @@ class apache::vhosts {
     file { "/var/www/html/$servername/public_html":
       ensure    => directory,
     }
-    file { "/var/www/html/$servername/log":
+    file { "/var/www/html/$servername/logs":
       ensure    => directory,
     }
   }
