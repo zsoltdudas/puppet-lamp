@@ -11,9 +11,6 @@ class apache::vhosts {
     file { "/var/www/html":
       ensure    => directory,
     }
-    file { "/var/www/html":
-      ensure    => directory,
-    }
     file { "/var/www/html/$servername":
       ensure    => directory,
     }
