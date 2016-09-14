@@ -18,6 +18,16 @@ class apache (
     ensure  => present,
   }
 
+  if $::osfamily == 'RedHat' {
+    file { "/etc/httpd":
+        ensure    => directory,
+    }
+
+    file { "/etc/httpd/conf":
+        ensure    => directory,
+    }
+  }
+
   file { 'configuration-file':
     path    => $conffile,
     ensure  => file,
