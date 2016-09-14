@@ -6,6 +6,7 @@ node 'puppetclient.example.com' {
   include apache::vhosts
   include mysql
   include php
+  include firewall
 }
 
 node 'puppetcentos.example.com' {
@@ -16,4 +17,5 @@ node 'puppetcentos.example.com' {
   include apache::vhosts
   include mysql
   include php
+  include firewall
 }

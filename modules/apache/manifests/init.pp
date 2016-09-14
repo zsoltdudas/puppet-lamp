@@ -26,10 +26,10 @@ class apache (
   }
 
   service { 'apache-service':
-    name	  => $apache_name,
+    name	     => $apache_name,
     ensure     => running,
     enable     => true,
-    hasrestart	  => true,
+    hasrestart => true,
   }
 
   file { $www:
