@@ -5,7 +5,6 @@ class apache::params {
     $conffile        = '/etc/httpd/conf/httpd.conf'
     $confsource      = 'puppet:///modules/apache/httpd.conf'
     $www             = '/var/www/html/index.php'
-    $package_manager = 'yum'
   }
 
   elsif $::osfamily  == 'Debian' {
@@ -13,7 +12,6 @@ class apache::params {
     $conffile        = '/etc/apache2/apache2.conf'
     $confsource      = 'puppet:///modules/apache/apache2.conf'
     $www             = '/var/www/html/index.php'
-    $package_manager = 'apt-get'
   }
 
   else {

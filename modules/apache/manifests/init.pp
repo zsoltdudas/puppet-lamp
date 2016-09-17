@@ -17,7 +17,6 @@ class apache (
   package { 'apache':
     name    => $apache_name,
     ensure  => present,
-    require => Exec['${package_manager} update'],
   }
 
   if $::osfamily == 'RedHat' {
