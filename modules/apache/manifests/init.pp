@@ -1,8 +1,9 @@
 class apache (
-  $apache_name  = $::apache::params::apache_name,
-  $conffile     = $::apache::params::conffile,
-  $confsource   = $::apache::params::confsource,
-  $www          = $::apache::params::www,
+  $apache_name     = $::apache::params::apache_name,
+  $conffile        = $::apache::params::conffile,
+  $confsource      = $::apache::params::confsource,
+  $www             = $::apache::params::www,
+  $package_manager = $::apache::params::package_manager,
 ) inherits ::apache::params {
 
   firewall { '100 allow apache':
@@ -16,6 +17,7 @@ class apache (
   package { 'apache':
     name    => $apache_name,
     ensure  => present,
+    require => Exec['${package_manager} update'],
   }
 
   if $::osfamily == 'RedHat' {
@@ -24,6 +26,11 @@ class apache (
     }
 
     file { "/etc/httpd/conf":
+        ensure    => directory,
+    }
+  }
+  elsif $::osfamily == 'Debian' {
+    file { "/etc/apache2":
         ensure    => directory,
     }
   }
