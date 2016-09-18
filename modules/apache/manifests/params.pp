@@ -21,7 +21,7 @@ class apache::params {
   }
 
   else {
-    print "This is not a supported distro."
+    fail('Unsupported Linux Distribution')
   }
 
 }

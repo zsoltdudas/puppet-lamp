@@ -45,7 +45,7 @@ class apache::vhosts {
   }
 
   else {
-      print "This is not a supported distro."
+      fail('Unsupported Linux Distribution')
   }
 
 }
