@@ -6,15 +6,16 @@ class mysql::params {
     if $::operatingsystemmajrelease == '7' {
       $mysql_name     = 'mariadb-server'
       $mysql_service  = 'mariadb'
+      $mysql_src      = 'puppet:///modules/mysql/my-centos.cnf'
     }
 
     elsif $::operatingsystemmajrelease == '6' {
       $mysql_name     = 'mysql-server'
       $mysql_service  = 'mysqld'
+      $mysql_src      = 'puppet:///modules/mysql/my-centos6.cnf'
     }
 
     $mysql_conf     = '/etc/my.cnf'
-    $mysql_src      = 'puppet:///modules/mysql/my-centos.cnf'
     $init_cmd       = '/bin/true'
     $mysqlpwd_cmd   = '/usr/bin/mysqladmin -u root password $mysqlpassword || /bin/true'
   }

@@ -1,9 +1,15 @@
 class apache::params {
 
   if $::osfamily     == 'RedHat' {
+    if $::operatingsystemmajrelease == '7' {
+      $confsource = 'puppet:///modules/apache/httpd.conf'
+    }
+
+    elsif $::operatingsystemmajrelease == '6' {
+      $confsource = 'puppet:///modules/apache/httpd-centos6.conf'
+    }
     $apache_name     = 'httpd'
     $conffile        = '/etc/httpd/conf/httpd.conf'
-    $confsource      = 'puppet:///modules/apache/httpd.conf'
     $www             = '/var/www/html/index.php'
   }
 
