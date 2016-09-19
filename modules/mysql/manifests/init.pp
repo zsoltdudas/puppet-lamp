@@ -12,26 +12,28 @@ class mysql (
     ensure  => present,
   }
 
-  service { $mysql_service:
+  service { 'mysql-service':
+    name      => $mysql_service,
     ensure    => running,
     enable    => true,
     require   => Package['mysql'],
   }
 
-  file { $mysql_conf:
+  file { 'mysql-conf':
+    path    => $mysql_conf,
     ensure  => present,
     source  => $mysql_src,
     mode    => '0644',
     require => Package['mysql'],
-    notify  => Service[$mysql_service],
+    notify  => Service['mysql-service'],
   }
 
-  exec { 'init_cmd':
+  exec { 'init-cmd':
     command => $init_cmd,
-    require => Service[$mysql_service],
+    require => Service['mysql-service'],
   }
 
-  exec { 'mysql_password':
+  exec { 'mysql-password':
     command => $mysqlpwd_cmd,
     onlyif  => $init_cmd,
     require => Package['mysql'],
