@@ -52,4 +52,3 @@ describe 'mysql', :type => 'class' do
     }
   end
 end
-

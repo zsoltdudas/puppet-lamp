@@ -50,7 +50,7 @@ class apache (
 
   file { $www:
     ensure  => present,
-    source  => 'puppet:///modules/www/index.php',
+    source  => 'puppet:///modules/php/index.php',
     require => Package[apache],
     notify  => Service[apache-service],
   }
