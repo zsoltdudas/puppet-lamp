@@ -7,5 +7,8 @@ node 'puppetclient.example.com' {
   include apache::vhosts
   include mysql
   include php
+
+  #puppetlabs-firewall module is needed to set up firewall on the server
+  #https://forge.puppet.com/puppetlabs/firewall
   include firewall
 }
